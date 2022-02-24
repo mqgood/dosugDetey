@@ -1,0 +1,31 @@
+<?php
+
+ $ima = $_POST['ima'];
+ $email = $_POST['email'];
+ $tel = $_POST['tel'];
+ 
+ $ima = htmlspecialchars($ima);
+  $email = htmlspecialchars($email);
+   $tel = htmlspecialchars($tel);
+   
+   $ima = urldecode($ima);
+  $email = urldecode($email);
+   $tel = urldecode($tel);
+   
+   $ima = trim($ima);
+  $email = trim($email);
+   $tel = trim($tel);
+
+if (mail("burdak.gleb@gmail.com",
+"Новое письмо с сайта",
+"Имя:".$ima."\n".
+"Email:".$email."\n".
+"Телефон:".$tel,
+"From: no-reply@ydomain.ru \r \n")
+) {
+	echo ('Письмо успешно отправлено!');
+}
+else {
+	echo ('Есть ошибки, проверьте данные...');
+}
+?>
